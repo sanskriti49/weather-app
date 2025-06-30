@@ -1,0 +1,106 @@
+/* Properly scoped using parent-child */
+.leaflet-popup.leaflet-popup-custom .leaflet-popup-content-wrapper {
+	border-radius: 1rem;
+	/* padding: 0.75rem; */
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(10px);
+	/* background-color: rgba(30, 41, 59, 0.5); */
+	background-color: rgba(32, 50, 78, 0.5);
+
+	color: #f8fafc; /* Tailwind's slate-50 */
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.leaflet-popup-content-wrapper {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+	width: 150px;
+	height: 160px;
+}
+
+.leaflet-popup-content {
+	width: auto !important;
+	max-width: 200px;
+	min-width: 100px;
+	height: 100%;
+	text-align: center;
+}
+
+.leaflet-popup {
+	position: absolute;
+	text-align: center;
+	margin-bottom: 20px;
+}
+.leaflet-popup-content-wrapper {
+	padding: 0;
+	text-align: center;
+	border-radius: 12px;
+	/* overflow-y: auto;
+	overflow-x: hidden; */
+	/* height: fit-content; */
+}
+.leaflet-popup-content {
+	margin: 12px 0;
+	/* line-height: 1; */
+
+	/* min-height: 1px; */
+}
+.leaflet-popup-content p {
+	/* margin: 12px 0; */
+	margin: 9px 0;
+	text-wrap-mode: wrap;
+	font-size: 19px;
+}
+.leaflet-popup-tip-container {
+	width: 40px;
+	height: 20px;
+	position: absolute;
+	left: 50%;
+	margin-top: -1px;
+	margin-left: -20px;
+	overflow: hidden;
+	pointer-events: none;
+}
+.leaflet-popup-tip {
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(10px);
+	background-color: #696b6d80;
+	color: #f8fafc; /* Tailwind's slate-50 */
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+	position: absolute;
+	top: 0;
+	right: 0;
+	border: none;
+	text-align: center;
+	width: 24px;
+	height: 24px;
+	font: 16px/24px Tahoma, Verdana, sans-serif;
+	color: whitesmoke;
+	text-decoration: none;
+	background: transparent;
+}
+.leaflet-container a.leaflet-popup-close-button:hover,
+.leaflet-container a.leaflet-popup-close-button:focus {
+	color: rgb(185, 224, 239);
+}
+.popup-weather-btn {
+	background-color: #3c8bd0; /* blue-600 */
+	color: white;
+	margin: 22px 7px;
+	border: none;
+	border-radius: 50px;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+	width: fit-content;
+	height: fit-content;
+	cursor: pointer;
+	transition: background-color 0.2s ease-in-out;
+}
+.popup-weather-btn:hover {
+	background-color: #2a81cb; /* blue-800 */
+}

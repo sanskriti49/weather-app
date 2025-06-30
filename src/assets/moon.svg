@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="284px" height="284px" viewBox="0 0 284 284" enable-background="new 0 0 284 284" xml:space="preserve">
+<g>
+	<g opacity="0.07">
+		<image overflow="visible" opacity="0.1" width="284" height="284" xlink:href="D5175C5B.png" >
+		</image>
+		<g>
+			<circle fill="#FCEE21" cx="142.066" cy="141.8" r="126"/>
+		</g>
+	</g>
+	<g opacity="0.07">
+		<image overflow="visible" opacity="0.1" width="234" height="234" xlink:href="D5175C59.png"  transform="matrix(1 0 0 1 25 25)">
+		</image>
+		<g>
+			<circle fill="#FCEE21" cx="142.066" cy="141.8" r="101.188"/>
+		</g>
+	</g>
+	<g>
+		
+			<image overflow="visible" opacity="0.06" width="182" height="182" xlink:href="D5175C5F.png"  transform="matrix(1 0 0 1 51 51)">
+		</image>
+		<g>
+			<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="143.3774" y1="66.7271" x2="140.7567" y2="216.8712">
+				<stop  offset="0" style="stop-color:#FCEE21"/>
+				<stop  offset="1" style="stop-color:#FBB03B"/>
+			</linearGradient>
+			<circle fill="url(#SVGID_1_)" cx="142.066" cy="141.8" r="75.083"/>
+		</g>
+	</g>
+	<circle fill="#BDB319" cx="104.307" cy="120.579" r="2.097"/>
+	<circle fill="#BDB319" cx="130.498" cy="102.577" r="2.838"/>
+	<circle fill="#BDB319" cx="103.142" cy="95.05" r="4.623"/>
+</g>
+</svg>

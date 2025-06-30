@@ -1,0 +1,243 @@
+/* /* DynamicBackground.module.css */
+
+.container {
+	position: fixed; /* Make it cover the viewport */
+	top: 0;
+	left: 0;
+	width: 100vw; /* Full width */
+	height: 100vh; /* Full height */
+	z-index: -1; /* Place it behind other content */
+	overflow: hidden; /* Hide overflowing clouds/elements */
+	/* Removed fixed width/height and centering margin */
+}
+
+.background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	transition: background-color 2s ease-in-out; /* Smooth transition */
+}
+
+/* Default (Night) Styles - these will be overridden by .day */
+.background {
+	background-color: #172a60; /* Night background */
+}
+
+.forestTop svg polygon,
+.forestBot svg path {
+	transition: fill 2s ease-in-out;
+	fill: #18214f; /* Night forest top */
+}
+
+.forestBot svg path {
+	fill: #172a60; /* Night forest bot */
+}
+
+.stars {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	pointer-events: none;
+	opacity: 0; /* Default hidden */
+	transition: opacity 2s ease-in-out;
+	background: radial-gradient(3px 3px at 10% 20%, white, transparent),
+		radial-gradient(3px 3px at 30% 40%, white, transparent),
+		radial-gradient(3px 3px at 50% 10%, white, transparent),
+		radial-gradient(4px 4px at 80% 30%, white, transparent),
+		radial-gradient(5px 5px at 60% 60%, white, transparent),
+		radial-gradient(3px 3px at 25% 70%, white, transparent),
+		radial-gradient(3px 3px at 90% 50%, white, transparent),
+		radial-gradient(5px 5px at 70% 80%, white, transparent);
+	/* background-size: cover; */
+	background-repeat: no-repeat;
+
+	z-index: 2; /* Make sure it's above the background but below the moon */
+}
+
+/* Show stars at night */
+.background.night .stars {
+	opacity: 0.4;
+}
+
+.cloud {
+	position: absolute;
+	width: 150px; /* Adjust size as needed */
+	height: 50px; /* Adjust size as needed */
+	opacity: 0.2; /* Default night opacity */
+	transition: opacity 2s ease-in-out;
+	/* Basic cloud shape */
+	background: white;
+	border-radius: 50px; /* Make ends round */
+}
+/* Add pseudo-elements for more cloud-like shape */
+.cloud::before,
+.cloud::after {
+	content: "";
+	position: absolute;
+	background: white;
+	border-radius: 50%;
+	z-index: -1; /* Behind the main part */
+}
+.cloud::before {
+	width: 80px;
+	height: 80px;
+	top: -40px;
+	left: 20px;
+}
+.cloud::after {
+	width: 60px;
+	height: 60px;
+	top: -25px;
+	right: 15px;
+}
+
+/* Cloud Positions (adjust these based on desired look for full screen) */
+.top {
+	top: 5%;
+	left: 10%; /* Start position for animation */
+}
+.mid {
+	top: 15%;
+	left: 60%; /* Start position for animation */
+}
+.botBackup {
+	/* Renamed from bot-backup for consistency */
+	top: 25%;
+	left: -200px; /* Start position for animation (off-screen) */
+}
+
+/* Day Styles */
+.background.day {
+	background-color: #0aceff; /* Day background */
+}
+
+.background.day .forestTop svg polygon {
+	fill: #149cbf; /* Day forest top */
+}
+
+.background.day .forestBot svg path {
+	fill: #0d87a3; /* Day forest bot */
+}
+
+.background.day .cloud {
+	opacity: 0.6; /* Day cloud opacity */
+}
+
+.background.day .stars {
+	opacity: 0; /* Stars hidden during day */
+}
+
+.overlay {
+	position: absolute;
+	z-index: 10;
+	width: 100%; /* Cover full width */
+	height: 100%; /* Cover full height */
+	/* Subtle gradient overlay - adjust as needed */
+	background: linear-gradient(
+		to bottom,
+		rgba(255, 255, 255, 0),
+		rgba(255, 255, 255, 0.06) 50%,
+		rgba(0, 0, 0, 0.05)
+	);
+	pointer-events: none; /* Allow clicks through */
+}
+.forestTop,
+.forestBot {
+	position: absolute;
+	bottom: 0; /* Position back at the bottom */
+	left: 0;
+	width: 100%;
+	/* Give the containers a sensible height - ADJUST AS NEEDED */
+	height: 8vh; /* Example: 8% of viewport height for Bot */
+	/* max-height: 60px; */ /* Optional: Add a max pixel height */
+	line-height: 0; /* Keep this to prevent extra space */
+	z-index: 5; /* Original z-index */
+	/* Removed temporary border, background-color */
+}
+
+.forestTop {
+	/* Taller and positioned slightly above bot */
+	height: 12vh; /* Example: 12% of viewport height */
+	/* max-height: 80px; */ /* Optional max */
+	/* Adjust bottom based on .forestBot's height to overlap/create gap */
+	bottom: 1%; /* Fine-tune this based on the actual rendered heights */
+}
+
+/* Ensure SVGs scale and RENDER SHAPE */
+.forestTop svg,
+.forestBot svg {
+	display: block;
+	width: 100%;
+	height: 100%; /* Fill the container's defined height */
+	/* REMOVE preserveAspectRatio="none" from the SVG component itself */
+	/* Or explicitly set a value that preserves aspect ratio: */
+	/* preserveAspectRatio="xMidYMin meet"; /* Align bottom edge, meet bounds */
+	transition: fill 2s ease-in-out;
+}
+
+/* --- Restore Original Fill Logic --- */
+
+/* Night Forest Colors (from previous attempts, adjust if needed) */
+.forestTop svg polygon {
+	fill: #1e295a;
+}
+.forestBot svg path {
+	fill: #1a2451;
+} /* Sun and Moon Positioning/Visibility */
+
+/* Day Forest Colors */
+.background.day .forestTop svg polygon {
+	fill: #149cbf; /* Day forest top */
+}
+.background.day .forestBot svg path {
+	fill: #0d87a3; /* Day forest bot */
+}
+
+.sun,
+.moon {
+	position: absolute;
+	left: 50%; /* Center horizontally */
+	transform: translateX(-50%); /* Adjust for centering */
+	width: 100px; /* Example size */
+	height: 100px; /* Example size */
+	border-radius: 50%;
+	z-index: 1; /* Behind clouds/forests */
+	transition: bottom 1.5s ease-in-out, opacity 1.5s ease-in-out;
+	opacity: 0; /* Hidden by default */
+}
+
+.sun {
+	background: #ffcc00; /* Sun color */
+	bottom: -100px; /* Start below screen */
+}
+
+.moon {
+	background: #f0f0f0; /* Moon color */
+	box-shadow: inset -15px 0px 0px 0px rgba(0, 0, 0, 0.1); /* Simple crescent effect */
+	bottom: -100px; /* Start below screen */
+}
+
+/* Day specific positions */
+.background.day .sun {
+	bottom: 60%; /* Position during the day */
+	opacity: 1;
+}
+.background.day .moon {
+	bottom: -100px; /* Keep hidden */
+	opacity: 0;
+}
+
+/* Night specific positions */
+.background.night .moon {
+	bottom: 70%; /* Position during the night */
+	opacity: 1;
+}
+.background.night .sun {
+	bottom: -100px; /* Keep hidden */
+	opacity: 0;
+}
